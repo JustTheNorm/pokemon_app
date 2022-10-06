@@ -1,7 +1,7 @@
 const React = require("react");
 
 
-function capitalizeFirstLetter(string) {
+function cap(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
@@ -17,7 +17,7 @@ class Index extends React.Component {
             <li key={idx}>
               <img src={pokemon.img} />
               <br/>
-              <a href={`/pokemon/${idx}`}>{capitalizeFirstLetter(pokemon.name)}</a>
+              <a href={`/pokemon/${idx}`}>{cap(pokemon.name)}</a>
             </li>
           ))}
         </ul>
