@@ -12,7 +12,7 @@ const app = express();
 //Middleware
 app.use(morgan(`dev`));
 //Middleware to read post request
-// app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
 // app.use(methodOverride("_method"));
 
@@ -22,7 +22,8 @@ app.use(morgan(`dev`));
 // });
 
 // Configure the app (app.set)
-
+app.set("view engine", "jsx");
+app.engine("jsx", require("express-react-views").createEngine());
 
 
 // Mount routes
@@ -31,7 +32,7 @@ app.get('/', (req, res)=> {
 });
 
 app.get(`/pokemon`, (req,res)=>{
-    res.send(pokemon)
+    res.render(`Index`, {pokemon})
 })
 
 
