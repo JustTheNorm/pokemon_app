@@ -1,19 +1,36 @@
-const React = require('react')
+const React = require("react");
 
 
-class Index extends React.Component{
-    render(){
-        return(
-            <div style={styles}>
-                <h1>See All The Pokemon</h1>
-            </div>
-        )
-    }
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  
+
+class Index extends React.Component {
+  render() {
+    const { pokemon } = this.props;
+    return (
+      <div style={styles}>
+        <h1>See All The Pokemon</h1>
+        <ul>
+          {pokemon.map((pokemon, idx) => (
+            <li key={idx}>
+              <img src={pokemon.img} />
+              <br/>
+              {capitalizeFirstLetter(pokemon.name)}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
 }
 
 const styles = {
-    color: `#ffffff`,
-    backgroundColor: `#000000`,
-}
+  color: `#ffffff`,
+  backgroundColor: `#000000`,
+};
 
-module.exports = Index
+module.exports = Index;
+
+
