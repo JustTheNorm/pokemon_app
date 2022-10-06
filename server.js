@@ -1,6 +1,7 @@
 // Require modules
 const express = require(`express`)
 const morgan = require(`morgan`)
+const pokemon = require(`./models/pokemon`)
 // const mongoose = require(`mongoose`)
 // const methodOverride = require("method-override");
 // require(`dotenv`).config()
@@ -25,9 +26,14 @@ app.use(morgan(`dev`));
 
 
 // Mount routes
-app.get('/', function(req, res) {
+app.get('/', (req, res)=> {
   	res.send('<h1>Welcome to the Pokemon App!</h1>');
 });
+
+app.get(`/pokemon`, (req,res)=>{
+    res.send(pokemon)
+})
+
 
 //DELETE
 // app.delete("/fruits/:id", (req, res) => {
